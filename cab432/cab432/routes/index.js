@@ -25,35 +25,36 @@ router.get('/', function (req, res) {
 });
 
 
-connectdb();
+//connectdb();
 
-function connectdb(){
-    var db = mysql.createConnection({
-        host     : 'localhost',
-        user     : 'root',
-        password : 'password',
-        database : 'cab432',
-
-        insecureAuth : true,
-      });
-
-    // connect to database
-    db.connect((err) => {   
-        if (!err) {
-
-            console.log("you are good to go bro")
-            tweet();
-
-        }else{
-            console.log("got an err mf:-" + err)
-            throw err;
-            
-        }
-  
-    });
-    global.db = db;
-
-}
+//function connectdb(){
+//    var db = mysql.createConnection({
+//        host     : 'localhost',
+//        user     : 'root',
+//        password : 'password',
+//        database : 'cab432',
+//
+//        insecureAuth : true,
+//      });
+//
+//    // connect to database
+//    db.connect((err) => {   
+//        if (!err) {
+//
+//            console.log("you are good to go bro")
+//            tweet();
+//
+//        }else{
+//            console.log("got an err mf:-" + err)
+//            throw err;
+//            
+//        }
+//  
+//    });
+//    global.db = db;
+//
+//}
+tweet();
 
 function tweet() {
     var resultarray = [];
