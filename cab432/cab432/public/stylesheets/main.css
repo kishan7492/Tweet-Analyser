@@ -6,3 +6,18 @@
 a {
     color: #00B7FF;
 }
+#tweets{
+    height: 100px;
+    width: 500px;
+    padding: 25px;
+    background-color:green;
+    border-radius: 1em;
+    font-weight:500;
+    margin: 100 auto;
+    color: #A70000;
+    align-content: center;
+}
+#text{
+    height: 1000px;
+    width: 800px;
+}
