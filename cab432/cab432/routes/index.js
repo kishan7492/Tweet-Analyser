@@ -25,48 +25,50 @@ router.get('/', function (req, res) {
 });
 
 
-//connectdb();
 
-//function connectdb(){
-//    var db = mysql.createConnection({
-//        host     : 'localhost',
-//        user     : 'root',
-//        password : 'password',
-//        database : 'cab432',
-//
-//        insecureAuth : true,
-//      });
-//
-//    // connect to database
-//    db.connect((err) => {   
-//        if (!err) {
-//
-//            console.log("you are good to go bro")
-//            tweet();
-//
-//        }else{
-//            console.log("got an err mf:-" + err)
-//            throw err;
-//            
-//        }
-//  
-//    });
-//    global.db = db;
-//
-//}
-tweet();
+var db = mysql.createConnection({
+    host     : 'localhost',
+    user     : 'root',
+    password : 'password',
+    database : 'cab432',
+    charset  : 'utf8mb4',
+    insecureAuth : 'true'
+  });
+
+// connect to database
+db.connect((err) => {   
+    if (!err) {
+
+        console.log("you are good to go bro")
+        tweet();
+
+    }else{
+        console.log("got an err mf:-" + err)
+        throw err;
+
+    }
+
+});
+global.db = db;
 
 function tweet() {
     var resultarray = [];
-    t.stream('statuses/filter', { track: 'a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z', lang:'en'}, function (stream) {
+    t.stream('statuses/filter', { track: 'a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z', language:'en'}, function (stream) {
         stream.on('data', function (tweet) {
             //console.log(tweet.text);
             resultarray.push(tweet.text);
             
+            db.query("INSERT INTO CAB432.tweet (tweets) VALUES (?)",[String(tweet.text)], function(err,res){
+                
+                if(err) throw err;
+                console.log("successfully inserted");
+                
+            });
+            
             var entities = tokenizer.tokenize(tweet.text);
             var sentiment = analyzer.getSentiment(entities);
             //console.log(entities);
-            console.log(sentiment);
+            //console.log(sentiment);
             //console.log(resultarray.length);
         });
         stream.on('limit', function (limit) {
