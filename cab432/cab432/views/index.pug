@@ -1,20 +1,18 @@
 ﻿extends layout
 
 block content
-  h1= title
-  p twitter #{title}
   .container
     .row
-      .col-md-3
-      .col-md-6.main
+      .col-md-4.main
         form(action = 'result',method = "get")
-          h1 Search here.
-          input#searchbox(type="text", name="search_query", placeholder='Enter your search Query')
-          br
-          button#search_button() Search
+          h3 Search here.
+            input#searchbox(type="text", name="search_query", placeholder='Enter your search Query')
+            br
+            button#search_button() Search
           
       //div to show results
   br
+  svg#fillgauge5(width='19%', height='200', onclick='gauge5.update(NewValue());')
   .container
     .row
       .col-md-2
@@ -24,5 +22,6 @@ block content
       br
   script.
     window.onload = function(){
-      x(!{resultarray});
+      tweetWriter(!{resultarray});
+      loadsentiment(!{sentiment});
     }
