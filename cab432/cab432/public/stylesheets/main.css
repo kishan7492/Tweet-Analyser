@@ -1,23 +1,27 @@
 ﻿body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin: 0;
 }
 
 a {
     color: #00B7FF;
+    text-decoration: none
 }
 #tweets{
     height: 100px;
-    width: 500px;
+    width: 800px;
     padding: 25px;
-    background-color:green;
+    background-color: #1565C0;
+    margin-left: 36%;
     border-radius: 1em;
     font-weight:500;
-    margin: 100 auto;
-    color: #A70000;
+    margin: 10 auto;
+    font-weight: 600;
+    color: white;
     align-content: center;
 }
 #text{
-    height: 1000px;
+    height: 100px;
     width: 800px;
 }

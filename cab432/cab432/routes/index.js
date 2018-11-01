@@ -42,7 +42,7 @@ var db = mysql.createConnection({
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    res.render('index', { title: 'Express' });
+    res.render('index', { title: 'tweetlizer' });
 });
 /* GET home page. */
 router.get('/result', function (req, res) {
@@ -131,7 +131,7 @@ function getresults(query, response) {
         var averagesentiment = (sentiment) / res.length;
 
         console.log("average sentiments of tweet: " + (sentiment) / res.length );
-        response.render('index', { resultarray: JSON.stringify(res), sentiment: averagesentiment, impwords: impwords});
+        response.render('index', { resultarray: JSON.stringify(res), sentiment: averagesentiment, impwords: JSON.stringify(impwords)});
         console.log("got it bro");
     });
 }

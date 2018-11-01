@@ -1,27 +1,38 @@
 ﻿extends layout
 
 block content
-  .container
-    .row
-      .col-md-4.main
-        form(action = 'result',method = "get")
-          h3 Search here.
-            input#searchbox(type="text", name="search_query", placeholder='Enter your search Query')
-            br
-            button#search_button() Search
-          
-      //div to show results
-  br
-  svg#fillgauge5(width='19%', height='200', onclick='gauge5.update(NewValue());')
-  .container
-    .row
-      .col-md-2
-        P Average sentiment : !{sentiment}
-        p#text
-        
-      br
+  main
+    section.search-section.home-search
+      .masthead.text-center
+        .container
+          .row
+            .col-lg-8.mx-md-auto
+              a(href='/')
+                h1 Tweetlyzer
+              form(action = 'result', method='get')
+                input.search-field(type='text',name="search_query" placeholder='Search Here.... ')
+                button(type='submit')
+                  i.icon.icon-search
+  section.topics
+    .container
+      .row
+        .col-xl-4.col-md-6
+          .topics-wrapper.border-style
+            h3  Word Cloud 
+            #myChart
+        .col-xl-4.col-md-6
+          .topics-wrapper.border-style
+            h3 Sentiments of tweets
+            svg#fillgauge(width='100%' height='400px',display ='none')
+  #text
+    
   script.
     window.onload = function(){
       tweetWriter(!{resultarray});
-      loadsentiment(!{sentiment});
+      console.log(!{sentiment});
+      var sentimentball = ((!{sentiment}) - (-0.5))/(1)*100;
+      var config = liquidFillGaugeDefaultSettings();
+      var gauge = loadLiquidFillGauge("fillgauge", sentimentball, config);
+      parsewords(!{impwords});
     }
+  script(src='main.js', language='JavaScript')
