@@ -236,7 +236,7 @@ function parsewords(words) {
           text: wordsarray.toString(),
           
           minLength: 5,
-          ignore: ['And','and','about','again','already','are','as','at','before','could','for','great','had','have','how','however','in','is','it','nothing','of','on','other','so','shall','still','that','to','The','the','their','then','there','thought','until','was','were','what','When','when','which','whole','with','would','your'],
+          ignore: ['And','and','about','again','already','are','as','at','before','could','for','great','had','have','how','however','in','is','it','nothing','of','on','other','so','shall','still','that','to','The','the','their','then','there','thought','until','was','were','what','When','when','which','whole','with','would','your','https','undefined'],
           maxItems: 100,
           token: 'word', //word is default. other option is character.
           
