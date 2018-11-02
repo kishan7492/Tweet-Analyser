@@ -56,7 +56,7 @@ router.get('/result', function (req, res) {
 db.connect((err) => {
     if (!err) {
         console.log("you are good to go bro")
-        tweet();
+        //tweet();
 
     } else {
         console.log("got an err mf:-" + err)

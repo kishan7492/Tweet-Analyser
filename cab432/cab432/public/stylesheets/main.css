@@ -1,5 +1,5 @@
 ﻿body {
-    padding: 50px;
+    
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     margin: 0;
 }
@@ -9,13 +9,13 @@ a {
     text-decoration: none
 }
 #tweets{
-    height: 100px;
-    width: 800px;
+    height: auto;
+    width: 100%;
     padding: 25px;
     background-color: #1565C0;
-    margin-left: 36%;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 1em;
-    font-weight:500;
     margin: 10 auto;
     font-weight: 600;
     color: white;
@@ -23,5 +23,9 @@ a {
 }
 #text{
     height: 100px;
-    width: 800px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 79%;
 }
