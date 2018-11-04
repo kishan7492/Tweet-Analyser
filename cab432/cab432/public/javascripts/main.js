@@ -1,25 +1,26 @@
 ﻿var reload;
-function loadlive(time) { 
+
+function loadlive(time) {
     var button = document.getElementById("toggle");
-    if(button.value =='on'){
+    if (button.value == 'on') {
         reload = setTimeout(() => {
             window.location.reload();
         }, time);
     }
-    
+
 }
 
 function stoplive(time) {
 
     var button = document.getElementById("toggle");
-  
+
     if (button.value == "on") {
         button.value = 'off';
         button.classList.add('btn-danger');
         button.classList.remove('btn-success');
         button.innerHTML = "Live stopped";
         clearTimeout(reload);
-    } 
+    }
     else if (button.value == "off") {
         button.value = 'on';
         button.classList.remove('btn-danger');
@@ -35,13 +36,22 @@ function stoplive(time) {
 }
 
 function tweetWriter(resultarray) {
-    if (resultarray.length === 0) {
-        document.getElementById("text").innerHTML = "Sorry no results found matching your Keyword. Search another key word "
-    }
-    resultarray.forEach(element => {
-        $('#text').append("<p id='tweets'>" + element.tweets + "</p>");
-    });
 
+    if (resultarray.length == 0 ) {
+        document.getElementById('wordcloud').style.display = 'none';
+        document.getElementById('sentiment').style.display = 'none';
+        
+        document.getElementById("text").innerHTML = "Sorry no results found matching your Keyword. Search another key word "
+    }else if(resultarray === 0) {
+    document.getElementById('wordcloud').style.display = 'none';
+        document.getElementById('sentiment').style.display = 'none';
+
+        //document.getElementById("text").innerHTML = "Sorry no results found matching your Keyword. Search another key word "
+    }else {
+        resultarray.forEach(element => {
+            $('#text').append("<p id='tweets'>" + element.tweets + "</p>");
+        });
+    }
 }
 
 
@@ -251,14 +261,19 @@ function loadLiquidFillGauge(elementId, value, config) {
 
 function parsewords(words) {
     var wordsarray = [];
-    words.forEach(element => {
-        for (var i = 0; i < element.length; i++) {
-            wordsarray.push(element[i]);
+    if (words.length == 0 || words === 0) {
 
-        }
+    } else {
+        words.forEach(element => {
+            for (var i = 0; i < element.length; i++) {
+                wordsarray.push(element[i]);
+
+            }
+        
 
     });
-    console.log(wordsarray);
+}
+
     var myConfig = {
         type: 'wordcloud',
         options: {

@@ -16,8 +16,6 @@ var tokenizer = new natural.WordTokenizer();
 var sys = require('util');
 var keyword_extractor = require("keyword-extractor");
 
-
-
 // // // // //make connections to AWS RDS database
 var db = mysql.createConnection({
     host     : 'cab432.cevhpb2zx7bd.ap-southeast-2.rds.amazonaws.com',
@@ -42,7 +40,7 @@ var db = mysql.createConnection({
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    res.render('index', { title: 'tweetlizer' });
+    res.render('index', { title: 'Kowalski Analysis',resultarray: 0, sentiment: 0, impwords: 0} );
 });
 /* GET home page. */
 router.get('/result', function (req, res) {
@@ -131,7 +129,7 @@ function getresults(query, response) {
         var averagesentiment = (sentiment) / res.length;
 
         console.log("average sentiments of tweet: " + (sentiment) / res.length );
-        response.render('index', { resultarray: JSON.stringify(res), sentiment: averagesentiment, impwords: JSON.stringify(impwords)});
+        response.render('index', {title: 'Kowalski Analysis', resultarray: JSON.stringify(res), sentiment: averagesentiment, impwords: JSON.stringify(impwords)});
         console.log("got it bro");
     });
 }

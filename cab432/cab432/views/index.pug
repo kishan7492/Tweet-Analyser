@@ -14,29 +14,36 @@ block content
                 input.search-field(type='text',name="search_query" placeholder='Search Here.... ')
                 button(type='submit')
                   i.fas.fa-search
-  button#toggle.btn.btn-success(type='button',value='on', onclick="stoplive(5000)") Running Live
+  button#toggle.btn.btn-success(type='button',value='on', onclick="stoplive(7000)") Running Live
   section.topics
     .container
       .row
         .col-xl-4.col-md-6
-          .topics-wrapper.border-style
+          #wordcloud.topics-wrapper.border-style
             h3  Word Cloud 
             #myChart
         .col-xl-4.col-md-6
-          .topics-wrapper.border-style
+          #sentiment.topics-wrapper.border-style
             h3 Sentiments of tweets
             svg#fillgauge(width='100%' height='400px',display ='none')
-              p#legend 0% Negative.        50% - Neutral.       100% Positive.
+              p#legend 
+                span(style='color:red') 0% Negative. 
+                span(style='color:#1565C0') 50% - Neutral.  
+                span(style='color:green') 100% Positive.
 
   #text
 
   script.
     window.onload = function(){
-      tweetWriter(!{resultarray});
-      var sentimentball = ((!{sentiment}) - (-0.5))/(1)*100;
-      var config = liquidFillGaugeDefaultSettings();
-      var gauge = loadLiquidFillGauge("fillgauge", sentimentball, config);
+      tweetWriter(!{resultarray});  
       parsewords(!{impwords});
-      loadlive(5000);
+
+      if(!{resultarray} === 0 ){}else{
+        if((!{resultarray}).length){
+          var config = liquidFillGaugeDefaultSettings();
+          var gauge = loadLiquidFillGauge("fillgauge", (((!{sentiment}) - (-0.5))/(1)*100), config);
+        }
+        loadlive(7000);
+      }
     }
   script(src='main.js', language='JavaScript')
