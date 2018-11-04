@@ -32,12 +32,15 @@ block content
                 span(style='color:green') 100% Positive.
 
   #text
-
+  // script to load the data on the page
   script.
     window.onload = function(){
+
+      // calling all the function from main.js
       tweetWriter(!{resultarray});  
       parsewords(!{impwords});
-
+      
+      //checking if the database has returned anything or not 
       if(!{resultarray} === 0 ){}else{
         if((!{resultarray}).length){
           var config = liquidFillGaugeDefaultSettings();
@@ -45,5 +48,6 @@ block content
         }
         loadlive(7000);
       }
+
     }
   script(src='main.js', language='JavaScript')

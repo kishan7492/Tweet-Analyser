@@ -1,5 +1,6 @@
 ﻿var reload;
 
+//reloads the page on given times 
 function loadlive(time) {
     var button = document.getElementById("toggle");
     if (button.value == 'on') {
@@ -7,13 +8,11 @@ function loadlive(time) {
             window.location.reload();
         }, time);
     }
-
 }
 
+// stops reloading page when the stop button is clicked
 function stoplive(time) {
-
     var button = document.getElementById("toggle");
-
     if (button.value == "on") {
         button.value = 'off';
         button.classList.add('btn-danger');
@@ -30,24 +29,23 @@ function stoplive(time) {
             window.location.reload();
         }, time);
     }
-
-    //loadlive();
-
 }
 
+
+// takes the input of the tweet's results array and writes it onto the webpage
 function tweetWriter(resultarray) {
 
-    if (resultarray.length == 0 ) {
+    if (resultarray.length == 0) {
         document.getElementById('wordcloud').style.display = 'none';
         document.getElementById('sentiment').style.display = 'none';
-        
+
         document.getElementById("text").innerHTML = "Sorry no results found matching your Keyword. Search another key word "
-    }else if(resultarray === 0) {
-    document.getElementById('wordcloud').style.display = 'none';
+    } else if (resultarray === 0) {
+        document.getElementById('wordcloud').style.display = 'none';
         document.getElementById('sentiment').style.display = 'none';
 
         //document.getElementById("text").innerHTML = "Sorry no results found matching your Keyword. Search another key word "
-    }else {
+    } else {
         resultarray.forEach(element => {
             $('#text').append("<p id='tweets'>" + element.tweets + "</p>");
         });
@@ -55,8 +53,8 @@ function tweetWriter(resultarray) {
 }
 
 
-
-
+//configration function of the sentiment liquid ball
+//need to specify how will the sentiment ball will looks
 function liquidFillGaugeDefaultSettings() {
     return {
         minValue: 0, // The gauge minimum value.
@@ -82,16 +80,16 @@ function liquidFillGaugeDefaultSettings() {
     };
 }
 
+//function takes the input of the element where to show the ball on the page 
+// with the value and the configration. 
 function loadLiquidFillGauge(elementId, value, config) {
     document.getElementById('fillgauge').style.display = 'block';
     if (config == null) config = liquidFillGaugeDefaultSettings();
-
     var gauge = d3.select("#" + elementId);
     var radius = Math.min(parseInt(gauge.style("width")), parseInt(gauge.style("height"))) / 2;
     var locationX = parseInt(gauge.style("width")) / 2 - radius;
     var locationY = parseInt(gauge.style("height")) / 2 - radius;
     var fillPercent = Math.max(config.minValue, Math.min(config.maxValue, value)) / config.maxValue;
-
     var waveHeightScale;
     if (config.waveHeightScaling) {
         waveHeightScale = d3.scale.linear()
@@ -116,7 +114,6 @@ function loadLiquidFillGauge(elementId, value, config) {
     var waveLength = fillCircleRadius * 2 / config.waveCount;
     var waveClipCount = 1 + config.waveCount;
     var waveClipWidth = waveLength * waveClipCount;
-
     // Rounding functions so that the correct number of decimal places is always displayed as the value counts up.
     var textRounder = function (value) { return Math.round(value); };
     if (parseFloat(textFinalValue) != parseFloat(textRounder(textFinalValue))) {
@@ -125,7 +122,6 @@ function loadLiquidFillGauge(elementId, value, config) {
     if (parseFloat(textFinalValue) != parseFloat(textRounder(textFinalValue))) {
         textRounder = function (value) { return parseFloat(value).toFixed(2); };
     }
-
     // Data for building the clip wave area.
     var data = [];
     for (var i = 0; i <= 40 * waveClipCount; i++) {
@@ -251,13 +247,12 @@ function loadLiquidFillGauge(elementId, value, config) {
                 animateWave(config.waveAnimateTime);
             });
     }
-
-
 }
 
 
 
 
+// function gets the words from the server and parses it to the wordcloud function. 
 
 function parsewords(words) {
     var wordsarray = [];
@@ -269,11 +264,13 @@ function parsewords(words) {
                 wordsarray.push(element[i]);
 
             }
-        
 
-    });
-}
 
+        });
+    }
+
+
+// configrations of the word cloud. 
     var myConfig = {
         type: 'wordcloud',
         options: {
@@ -317,7 +314,7 @@ function parsewords(words) {
         }
     };
 
-
+// draws the word cloud based on the data
     zingchart.render({
         id: 'myChart',
         data: myConfig,
