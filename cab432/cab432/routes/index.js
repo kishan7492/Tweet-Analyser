@@ -67,7 +67,7 @@ global.db = db;
 //{ track: 'a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z', language:'en'}
 function tweet() {
     var resultarray = [];
-    t.stream('statuses/filter', { track: 'a', language: 'en' }, function (stream) {
+    t.stream('statuses/filter', { track: 'a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z', language:'en'}, function (stream) {
         stream.on('data', function (tweet) {
             //console.log(tweet.text);
             resultarray.push(tweet.text);
