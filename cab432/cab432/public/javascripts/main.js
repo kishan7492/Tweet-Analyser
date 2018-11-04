@@ -44,7 +44,6 @@ function tweetWriter(resultarray) {
         document.getElementById('wordcloud').style.display = 'none';
         document.getElementById('sentiment').style.display = 'none';
 
-        //document.getElementById("text").innerHTML = "Sorry no results found matching your Keyword. Search another key word "
     } else {
         resultarray.forEach(element => {
             $('#text').append("<p id='tweets'>" + element.tweets + "</p>");
@@ -270,7 +269,7 @@ function parsewords(words) {
     }
 
 
-// configrations of the word cloud. 
+    // configrations of the word cloud. 
     var myConfig = {
         type: 'wordcloud',
         options: {
@@ -314,7 +313,7 @@ function parsewords(words) {
         }
     };
 
-// draws the word cloud based on the data
+    // draws the word cloud based on the data
     zingchart.render({
         id: 'myChart',
         data: myConfig,

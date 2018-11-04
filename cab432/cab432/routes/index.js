@@ -48,9 +48,9 @@ router.get('/', function (req, res) {
 });
 /* GET home page. */
 router.get('/result', function (req, res) {
-    console.log(req.query.search_query);
+
     getresults(req.query.search_query, res);
-    //res.render('index', { title: 'Express' });
+
 });
 
 // connect to database
@@ -99,7 +99,7 @@ function getresults(query, response) {
     //query execution
     db.query(sqlquery, function (err, res, fields) {
         if (err) throw err;
-    
+
 
         //sentiment analysis 
         var sentiment = 0;
