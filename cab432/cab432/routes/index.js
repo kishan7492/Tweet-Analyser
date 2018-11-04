@@ -18,26 +18,26 @@ var keyword_extractor = require("keyword-extractor");
 
 
 
-//make connections to AWS RDS database
-// var db = mysql.createConnection({
-//     host     : 'cab432database.cgkf18rr0vyj.ap-southeast-1.rds.amazonaws.com',
-//     user     : 'root',
-//     password : 'password',
-//     database : 'twitter',
-//     charset  : 'utf8mb4'
-//     //insecureAuth : 'true'
-//   });
-
-
-//make connection to the local database
+// // // // //make connections to AWS RDS database
 var db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'password',
-    database: 'twitter',
-    charset: 'utf8mb4'
+    host     : 'cab432.cevhpb2zx7bd.ap-southeast-2.rds.amazonaws.com',
+    user     : 'root',
+    password : 'password',
+    database : 'twitter',
+    charset  : 'utf8mb4'
     //insecureAuth : 'true'
-});
+  });
+
+
+// //make connection to the local database
+// var db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'password',
+//     database: 'twitter',
+//     charset: 'utf8mb4'
+//     //insecureAuth : 'true'
+// });
 
 
 /* GET home page. */

@@ -29,3 +29,21 @@ a {
     height: auto;
     width: 79%;
 }
+#heading{
+    font-family: Arial, Helvetica, sans-serif;
+    color:#2e9aec;
+    font-weight: 600;
+    font-style: italic;
+}
+#legend{
+    color: #1565C0;
+    font-weight: 700;
+    font-size: 15px;
+    margin-left: 20px;
+}
+#toggle{
+    width: 200px;
+    position: absolute;
+    left: 45% ;
+    font-weight: 500;
+}
