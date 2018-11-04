@@ -44,7 +44,7 @@ var db = mysql.createConnection({
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    res.render('index', { title: 'Kowalski Analysis', resultarray: 0, sentiment: 0, impwords: 0 });
+    res.render('index', { title: 'Kowalski Analysis', resultarray: '0', sentiment: 0, impwords: 0 });
 });
 /* GET home page. */
 router.get('/result', function (req, res) {
@@ -57,7 +57,7 @@ router.get('/result', function (req, res) {
 db.connect((err) => {
     if (!err) {
         console.log("Database connected Successfully.")
-        tweet();
+        //tweet();
 
     } else {
         console.log("Database connection error:- " + err)
