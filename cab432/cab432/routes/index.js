@@ -57,7 +57,7 @@ router.get('/result', function (req, res) {
 db.connect((err) => {
     if (!err) {
         console.log("Database connected Successfully.")
-        //tweet();
+        tweet();
 
     } else {
         console.log("Database connection error:- " + err)
