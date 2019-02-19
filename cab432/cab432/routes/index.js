@@ -15,15 +15,18 @@ var tokenizer = new natural.WordTokenizer();
 var sys = require('util');
 var keyword_extractor = require("keyword-extractor");
 
-// // // // //make connections to AWS RDS database
-var db = mysql.createConnection({
-    host: 'cab432.cevhpb2zx7bd.ap-southeast-2.rds.amazonaws.com',
-    user: 'root',
-    password: 'password',
-    database: 'twitter',
-    charset: 'utf8mb4'
 
-});
+/////// To run with aws rds ///////////////////////////
+///////////////////////////////////////////
+// make connections to AWS RDS database
+// var db = mysql.createConnection({
+//     host: 'cab432.cevhpb2zx7bd.ap-southeast-2.rds.amazonaws.com',
+//     user: 'root',
+//     password: 'password',
+//     database: 'twitter',
+//     charset: 'utf8mb4'
+
+// });
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -32,15 +35,15 @@ var db = mysql.createConnection({
 ////////////////////////////////////////////////////////////////////////////
 
 
-// //make connection to the local database
-// var db = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: 'password',
-//     database: 'twitter',
-//     charset: 'utf8mb4'
-//     //insecureAuth : 'true'
-// });
+//make connection to the local database
+var db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'password',
+    database: 'twitter',
+    charset: 'utf8mb4',
+    insecureAuth : 'true'
+});
 
 /* GET home page. */
 router.get('/', function (req, res) {
