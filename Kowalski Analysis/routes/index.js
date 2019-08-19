@@ -20,10 +20,10 @@ var keyword_extractor = require("keyword-extractor");
 ///////////////////////////////////////////
 // make connections to AWS RDS database
 // var db = mysql.createConnection({
-//     host: 'cab432.cevhpb2zx7bd.ap-southeast-2.rds.amazonaws.com',
-//     user: 'root',
-//     password: 'password',
-//     database: 'twitter',
+//     host: '',
+//     user: '',
+//     password: '',
+//     database: '',
 //     charset: 'utf8mb4'
 
 // });
