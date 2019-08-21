@@ -42,7 +42,7 @@ For the demo, clone the repository and move to the project folder and run the fo
 In order to install it in live system, you'll need to use Cloud based services such as AWS, Microsoft Azure, etc.
 * Full documentation will be available soon for live scalable system. 
 ## Authors
-* [Kishan Virani :](www.virani.me) kishan7492@gmail.com
+* [Kishan Virani](www.virani.me) : kishan7492@gmail.com
 
 ## Licensing
 
