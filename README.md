@@ -1,6 +1,6 @@
 
 # **Tweet Analyser**
-Tweet Analyser is Node.js based Web App, which analyses the core meaning of the tweets. Tweet Analyser uses multiple NPM packages to extract and analyse the tweets in real time without generating much load on the primary server. In order to provide persistence to the users, Tweet Analyser uses MySQL database, which can be hosted locally or on the cloud. Tweet analyser shows the positivity percentage and the Word Cloud of the tweets related to the campaign terms/hashtags.   
+Tweet Analyser is Node.js based Web App, which analyses the core meaning of the tweets and shows the sentiment. Tweet Analyser uses multiple NPM packages to extract and analyse the tweets in real time without generating much load on the primary server. In order to provide persistence to the users, Tweet Analyser uses MySQL database, which can be hosted locally or on the cloud. Tweet analyser shows the positivity percentage and the Word Cloud of the tweets related to the campaign terms/hashtags.   
 
 ## Usages
 * Tweet Analyser can be used to track particular user’s tweets and can show sentiments of the tweet posted via user’s account. 
