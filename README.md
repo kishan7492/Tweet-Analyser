@@ -45,4 +45,5 @@ In order to install it in live system, you'll need to use Cloud based services s
 * [Kishan Virani](https://www.virani.me) : kishan7492@gmail.com
 
 ## Licensing
-
+Tweet Analyser : Copyright (c) 2019 Kishan Virani 
+Checkout [License](LICENSE) File for more information.
