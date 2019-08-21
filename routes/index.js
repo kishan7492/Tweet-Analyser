@@ -18,7 +18,8 @@ var keyword_extractor = require("keyword-extractor");
 
 /////// To run with aws rds ///////////////////////////
 ///////////////////////////////////////////
-// make connections to AWS RDS database
+
+// make connections to AWS RDS database fill your details here 
 // var db = mysql.createConnection({
 //     host: '',
 //     user: '',
