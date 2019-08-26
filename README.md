@@ -5,7 +5,6 @@ Tweet Analyser is Node.js based Web App, which analyses the core meaning of the 
 ## Usages
 * Tweet Analyser can be used to track particular user’s tweets and can show sentiments of the tweet posted via user’s account. 
 * Tweet Analyser can be used to track the impact of marketing campaign on the users. Based on the sentimental analyses companies can understand the user reaction on marketing campaign. 
-## Screenshots 
 
 ## Demo
 For the demo, clone the repository and move to the project folder and run the following commands. 
